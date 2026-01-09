@@ -1,0 +1,46 @@
+@import "tailwindcss";
+:root {
+  --font-fira-sans-condensed: 'Fira Sans Condensed', sans-serif;
+}
+
+:root, .theme-blue {
+
+  --background: 210 50% 98%;
+  
+ 
+  --foreground: 230 15% 25%;
+  --card: 0 0% 100%;
+  --card-foreground: 230 15% 25%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 230 15% 25%;
+  --primary: 160 84% 39%;
+  --primary-hover: 160 84% 34%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 150 30% 95%;
+  --secondary-foreground: 160 60% 30%;
+  --muted: 150 25% 94%;
+  --muted-foreground: 230 10% 45%;
+  --accent: 280 65% 60%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 348 83% 47%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 150 20% 88%;
+  --input: 150 20% 88%;
+  --ring: 160 84% 39%;
+  --sidebar-background: 155 40% 96%;
+  --sidebar-foreground: 230 15% 35%;
+  --sidebar-primary: 160 84% 39%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 150 35% 92%;
+  --sidebar-accent-foreground: 230 15% 25%;
+  --sidebar-border: 150 20% 88%;
+  --sidebar-ring: 160 84% 39%;
+  --footer-background: hsl(230, 25%, 12%);
+  --codebg: hsl(155, 30%, 98%);
+  --radius: .75rem;
+}
+
+body{
+  background-color: hsl(var(--background));
+  font-family: var(--font-fira-sans-condensed);
+}
