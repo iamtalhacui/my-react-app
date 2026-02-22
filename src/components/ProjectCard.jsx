@@ -1,101 +1,102 @@
+import { ExternalLink, Github, Calendar } from "lucide-react";
 
-import React from 'react';
-import { ExternalLink, Github, Calendar, Tag } from 'lucide-react';
-
-export const ProjectCard = ({ 
+export const ProjectCard = ({
   title = "Project Title",
-  description = "A brief description of your amazing project that showcases your skills and expertise in modern web development.",
+  description = "A brief description of your amazing project.",
   image = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop",
   technologies = ["React", "JavaScript", "CSS"],
   liveUrl = "#",
   githubUrl = "#",
-  date = "2024"
+  date = "2024",
 }) => {
   return (
-    <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out transform hover:-translate-y-2 overflow-hidden border border-gray-100 max-w-sm mx-4">
-      
-      <div className="relative overflow-hidden h-40 bg-gradient-to-br from-blue-50 to-indigo-100">
-        <img 
-          src={image} 
+    <div className="group relative flex flex-col rounded-2xl border border-[hsl(var(--primary))]/10 bg-white/60 dark:bg-white/4 backdrop-blur-sm overflow-hidden hover:border-[hsl(var(--primary))]/25 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-[hsl(var(--primary))]/10 transition-all duration-300 max-w-sm w-full">
+
+      {/* Top gradient hairline */}
+      <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-[hsl(var(--primary))]/40 to-transparent z-10" />
+
+      {/* Image area */}
+      <div className="relative h-44 overflow-hidden bg-[hsl(var(--primary))]/5">
+        <img
+          src={image}
           alt={title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        
-      
-        <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center space-x-4 opacity-0 group-hover:opacity-100">
-          <a 
+
+        {/* Hover overlay with action buttons */}
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/55 transition-all duration-300 flex items-center justify-center gap-3">
+          <a
             href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white text-gray-800 p-3 rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300 transform hover:scale-110 shadow-lg"
+            className="flex items-center justify-center w-10 h-10 rounded-full bg-white text-gray-800 opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 hover:bg-[hsl(var(--primary))] hover:text-white transition-all duration-300 shadow-lg"
+            style={{ transitionDelay: "0.05s" }}
           >
-            <ExternalLink size={20} />
+            <ExternalLink size={17} />
           </a>
-          <a 
+          <a
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white text-gray-800 p-3 rounded-full hover:bg-gray-800 hover:text-white transition-all duration-300 transform hover:scale-110 shadow-lg"
+            className="flex items-center justify-center w-10 h-10 rounded-full bg-white text-gray-800 opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 hover:bg-gray-900 hover:text-white transition-all duration-300 shadow-lg"
+            style={{ transitionDelay: "0.1s" }}
           >
-            <Github size={20} />
+            <Github size={17} />
           </a>
         </div>
 
-        
-        <div className="absolute top-4 right-4 bg-white bg-opacity-90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center space-x-1 text-sm text-gray-700 shadow-md">
-          <Calendar size={14} />
-          <span className="font-medium">{date}</span>
+        {/* Date badge */}
+        <div className="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-sm text-white text-xs font-semibold">
+          <Calendar size={11} />
+          {date}
         </div>
       </div>
 
-     
-      <div className="p-6">
-       
-        <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-[hsl(var(--primary))] transition-colors duration-300 line-clamp-2">
+      {/* Content */}
+      <div className="flex flex-col flex-1 p-5 gap-3">
+        <h3 className="font-extrabold text-base tracking-tight text-[hsl(var(--foreground))] dark:text-white group-hover:text-[hsl(var(--primary))] transition-colors duration-200 line-clamp-1">
           {title}
         </h3>
 
-       
-        <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+        <p className="text-xs text-[hsl(var(--foreground))]/55 dark:text-white/40 leading-relaxed line-clamp-2">
           {description}
         </p>
 
-        
-        <div className="flex flex-wrap gap-2 mb-4">
-          {technologies.map((tech, index) => (
-            <span 
-              key={index}
-              className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 border border-blue-200 hover:from-blue-100 hover:to-indigo-100 transition-all duration-300"
+        {/* Tech pills */}
+        <div className="flex flex-wrap gap-1.5 mt-1">
+          {technologies.map((tech) => (
+            <span
+              key={tech}
+              className="px-2.5 py-1 rounded-full text-[10px] font-semibold border border-[hsl(var(--primary))]/20 bg-[hsl(var(--primary))]/8 text-[hsl(var(--primary))]"
             >
-              <Tag size={12} className="mr-1" />
               {tech}
             </span>
           ))}
         </div>
 
-        
-        <div className="flex space-x-3">
+        {/* Action buttons */}
+        <div className="flex gap-2 mt-auto pt-3">
           <a
             href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 bg-gradient-to-r from-blue-500 to-[hsl(var(--primary))] text-white text-center py-2 px-4 rounded-lg font-medium text-sm hover:from-blue-600 hover:to-[hsl(var(--primary-hover))] transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
+            className="relative overflow-hidden flex-1 group/btn flex items-center justify-center gap-1.5 py-2 rounded-full bg-[hsl(var(--primary))] text-[hsl(var(--background))] text-xs font-bold shadow-md shadow-[hsl(var(--primary))]/25 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
           >
-            Live Demo
+            <span className="absolute inset-0 bg-white/20 -translate-x-full -skew-x-12 group-hover/btn:translate-x-[120%] transition-transform duration-300" />
+            <ExternalLink size={12} />
+            <span className="relative">Live Demo</span>
           </a>
           <a
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 bg-gray-100 text-gray-700 text-center py-2 px-4 rounded-lg font-medium text-sm hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 border border-gray-200 hover:border-gray-300"
+            className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-full border border-[hsl(var(--foreground))]/15 dark:border-white/10 text-[hsl(var(--foreground))]/70 dark:text-white/60 text-xs font-bold hover:border-[hsl(var(--primary))]/40 hover:text-[hsl(var(--primary))] hover:-translate-y-0.5 transition-all duration-200"
           >
+            <Github size={12} />
             Source Code
           </a>
         </div>
       </div>
-
-      
-      <div className="h-1 bg-gradient-to-r from-blue-400 via-[hsl(var(--primary))] to-[hsl(var(--primary-hover))] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"></div>
     </div>
   );
 };

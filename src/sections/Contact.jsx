@@ -1,230 +1,187 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, CheckCircle, AlertCircle, Instagram } from 'lucide-react';
+import { useState } from "react";
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram, CheckCircle } from "lucide-react";
+
+const openLink = (url) => window.open(url, "_blank", "noopener,noreferrer");
+
+const contactInfo = [
+  { icon: Mail,    label: "Email",    value: "imtalha.dev@gmail.com",  color: "text-[hsl(var(--primary))]", bg: "bg-[hsl(var(--primary))]/10 border-[hsl(var(--primary))]/20" },
+  { icon: Phone,   label: "Phone",    value: "+92 316 5772553",         color: "text-emerald-500",           bg: "bg-emerald-500/10 border-emerald-500/20" },
+  { icon: MapPin,  label: "Location", value: "Abbottabad, Pakistan",    color: "text-rose-400",              bg: "bg-rose-400/10 border-rose-400/20" },
+];
+
+const socials = [
+  { icon: Github,   action: () => openLink("https://github.com/iamtalhacui"),              label: "GitHub",    style: "border-white/15 hover:border-white/40 hover:bg-white/10 text-white/60 hover:text-white" },
+  { icon: Linkedin, action: () => openLink("https://www.linkedin.com/in/m-talha-mern/"),  label: "LinkedIn",  style: "border-white/15 hover:border-[#0A66C2]/60 hover:bg-[#0A66C2]/15 text-white/60 hover:text-[#0A66C2]" },
+  { icon: Instagram,action: () => openLink("https://www.instagram.com/mr_talha_here/"),   label: "Instagram", style: "border-white/15 hover:border-pink-400/60 hover:bg-pink-400/15 text-white/60 hover:text-pink-400" },
+];
 
 const Contact = () => {
-  const openLink = (url) => {
-    window.open(url, "_blank", "noopener,noreferrer");
-  };
-  
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    
-    
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setSubmitStatus('success');
+    await new Promise((r) => setTimeout(r, 1800));
     setIsSubmitting(false);
-    
-    
+    setSubmitted(true);
     setTimeout(() => {
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setSubmitStatus(null);
+      setSubmitted(false);
+      setFormData({ name: "", email: "", subject: "", message: "" });
     }, 3000);
   };
 
+  const inputClass =
+    "w-full px-4 py-2.5 text-sm rounded-xl border border-[hsl(var(--foreground))]/12 dark:border-white/10 bg-white/50 dark:bg-white/4 text-[hsl(var(--foreground))] dark:text-white placeholder:text-[hsl(var(--foreground))]/30 dark:placeholder:text-white/25 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--primary))]/40 focus:border-[hsl(var(--primary))]/40 hover:border-[hsl(var(--primary))]/25 transition-all duration-200";
+
   return (
-    <div id='contact' className='md:mt-0 mt-150 w-full py-8 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20'>
-      <div className='max-w-7xl mx-auto'>
-        <h1 className='text-2xl sm:text-3xl lg:text-4xl font-bold text-[hsl(var(--foreground))] mb-2'>
-          Contact Me
-        </h1>
-        <div className='rounded-full h-2 w-16 bg-[hsl(var(--primary))] mb-6'></div>
+    <>
+      <style>{`
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(28px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        .anim-fade-up { opacity: 0; animation: fadeUp 0.6s ease forwards; }
+      `}</style>
 
-        <div className='transition-all ease-in-out duration-500 border-2 border-gray-300 bg-gradient-to-tr from-blue-50 hover:scale-[1.005] hover:shadow-xl to-[hsl(var(--background))] bg-white rounded-2xl shadow-lg'>
-          
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 p-4 sm:p-6 lg:p-8'>
-            
-            
-            <div className='space-y-4 lg:space-y-6'>
-              <div>
-                <h2 className='text-xl sm:text-2xl lg:text-2xl font-bold text-gray-800 mb-2 lg:mb-3'>
-                  Get In Touch
-                </h2>
-                <p className='text-gray-600 text-sm sm:text-base lg:text-base leading-relaxed'>
-                  I'm always excited to connect with fellow developers, potential clients, and creative minds. 
-                  Whether you have a project in mind, want to collaborate, or just want to say hello, I'd love to hear from you!
-                </p>
-              </div>
+      <section id="contact" className="relative min-h-screen py-24 px-5 md:px-10 lg:px-32 overflow-hidden scroll-mt-20">
 
-            
-              <div className='space-y-3 lg:space-y-4'>
-                <div className='flex items-center space-x-3 group'>
-                  <div className='bg-blue-100 p-2 lg:p-2.5 rounded-full group-hover:bg-blue-200 transition-colors duration-300'>
-                    <Mail className='text-blue-600' size={16} />
-                  </div>
-                  <div>
-                    <h3 className='font-semibold text-gray-800 text-sm lg:text-base'>Email</h3>
-                    <p className='text-gray-600 text-xs lg:text-sm'>imtalha.dev@gmail.com</p>
-                  </div>
-                </div>
+        {/* Background blobs */}
+        <div className="absolute top-10 left-0 w-80 h-80 rounded-full bg-[hsl(var(--primary))]/6 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 right-0 w-72 h-72 rounded-full bg-[hsl(var(--primary))]/5 blur-3xl pointer-events-none" />
 
-                <div className='flex items-center space-x-3 group'>
-                  <div className='bg-green-100 p-2 lg:p-2.5 rounded-full group-hover:bg-green-200 transition-colors duration-300'>
-                    <Phone className='text-green-600' size={16} />
-                  </div>
-                  <div>
-                    <h3 className='font-semibold text-gray-800 text-sm lg:text-base'>Phone</h3>
-                    <p className='text-gray-600 text-xs lg:text-sm'>+92 3165772553</p>
-                  </div>
-                </div>
+        {/* Heading */}
+        <div className="anim-fade-up" style={{ animationDelay: "0.1s" }}>
+          <p className="text-xs font-semibold tracking-widest uppercase text-[hsl(var(--primary))]/70 mb-2">
+            Let's work together
+          </p>
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[hsl(var(--foreground))] dark:text-white">
+            Contact Me
+          </h2>
+          <div className="h-1 w-14 rounded-full bg-[hsl(var(--primary))] mt-3" />
+          <p className="mt-4 text-sm text-[hsl(var(--foreground))]/50 dark:text-white/40 max-w-md">
+            Have a project in mind or just want to say hello? My inbox is always open.
+          </p>
+        </div>
 
-                <div className='flex items-center space-x-3 group'>
-                  <div className='bg-purple-100 p-2 lg:p-2.5 rounded-full group-hover:bg-purple-200 transition-colors duration-300'>
-                    <MapPin className='text-purple-600' size={16} />
-                  </div>
-                  <div>
-                    <h3 className='font-semibold text-gray-800 text-sm lg:text-base'>Location</h3>
-                    <p className='text-gray-600 text-xs lg:text-sm'>Abbottabad, Pakistan</p>
-                  </div>
-                </div>
-              </div>
+        {/* Main card */}
+        <div
+          className="anim-fade-up mt-12 grid grid-cols-1 lg:grid-cols-5 rounded-2xl border border-[hsl(var(--primary))]/10 overflow-hidden shadow-xl shadow-black/5"
+          style={{ animationDelay: "0.25s" }}
+        >
+          {/* ── Left sidebar ── */}
+          <div className="relative lg:col-span-2 flex flex-col gap-8 p-8 bg-[hsl(var(--primary))] overflow-hidden">
+            {/* Decorative circles */}
+            <div className="absolute -bottom-16 -right-16 w-48 h-48 rounded-full bg-white/8 pointer-events-none" />
+            <div className="absolute -top-10 -left-10 w-36 h-36 rounded-full bg-white/5 pointer-events-none" />
 
-             
-              <div>
-                <h3 className='font-semibold text-gray-800 mb-3 text-sm lg:text-base'>Connect With Me</h3>
-                <div className='flex space-x-3'>
-                  <button 
-                    onClick={() => openLink("https://github.com/iamtalhacui")}
-                    className='bg-gray-800 text-white p-2 lg:p-2.5 rounded-full hover:bg-blue-600 transition-all duration-300 transform hover:scale-110 hover:shadow-lg'
-                  >
-                    <Github size={16} />
-                  </button>
-                  <button 
-                    onClick={() => openLink("https://www.linkedin.com/in/m-talha-mern/")}
-                    className='bg-blue-600 text-white p-2 lg:p-2.5 rounded-full hover:bg-blue-700 transition-all duration-300 transform hover:scale-110 hover:shadow-lg'
-                  >
-                    <Linkedin size={16} />
-                  </button>
-                  <button 
-                    onClick={() => openLink("https://www.instagram.com/mr_talha_here/")}
-                    className='bg-pink-500 text-white p-2 lg:p-2.5 rounded-full hover:bg-pink-600 transition-all duration-300 transform hover:scale-110 hover:shadow-lg'
-                  >
-                    <Instagram size={16} />
-                  </button>
-                </div>
-              </div>
+            <div>
+              <h3 className="text-xl font-extrabold text-white tracking-tight">Get In Touch</h3>
+              <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                I'm always excited to connect with fellow developers, potential clients, and creative minds.
+              </p>
             </div>
 
-    
-            <div className='bg-white rounded-xl shadow-lg p-4 sm:p-6 lg:p-6 border border-gray-100 relative'>
-              <h2 className='text-lg sm:text-xl lg:text-xl font-bold text-gray-800 mb-4'>Send Message</h2>
-              
-              {submitStatus === 'success' && (
-                <div className='mb-4 p-3 bg-green-50 border border-green-200 rounded-lg flex items-center space-x-2'>
-                  <CheckCircle className='text-green-600' size={16} />
-                  <p className='text-green-800 font-medium text-sm'>Message sent successfully! I'll get back to you soon.</p>
-                </div>
-              )}
-
-              <div className='space-y-4'>
-                <div className='grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4'>
-                  <div>
-                    <label className='block text-xs lg:text-sm font-medium text-gray-700 mb-1'>
-                      Full Name
-                    </label>
-                    <input
-                      type='text'
-                      name='name'
-                      value={formData.name}
-                      onChange={handleChange}
-                      className='w-full px-3 py-2 lg:py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:border-gray-400'
-                      placeholder='Your name'
-                    />
+            {/* Contact info items */}
+            <div className="flex flex-col gap-4">
+              {contactInfo.map(({ icon: Icon, label, value, bg, color }) => (
+                <div key={label} className="flex items-center gap-3 group">
+                  <div className={`flex-shrink-0 w-9 h-9 rounded-xl border bg-white/15 border-white/20 flex items-center justify-center text-white transition-all duration-200 group-hover:bg-white/25`}>
+                    <Icon size={15} />
                   </div>
                   <div>
-                    <label className='block text-xs lg:text-sm font-medium text-gray-700 mb-1'>
-                      Email Address
-                    </label>
-                    <input
-                      type='email'
-                      name='email'
-                      value={formData.email}
-                      onChange={handleChange}
-                      className='w-full px-3 py-2 lg:py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:border-gray-400'
-                      placeholder='your.email@example.com'
-                    />
+                    <p className="text-[10px] font-semibold text-white/45 uppercase tracking-wider">{label}</p>
+                    <p className="text-sm font-medium text-white/85">{value}</p>
                   </div>
                 </div>
+              ))}
+            </div>
 
-                <div>
-                  <label className='block text-xs lg:text-sm font-medium text-gray-700 mb-1'>
-                    Subject
-                  </label>
-                  <input
-                    type='text'
-                    name='subject'
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className='w-full px-3 py-2 lg:py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:border-gray-400'
-                    placeholder='What is this about?'
-                  />
-                </div>
-
-                <div>
-                  <label className='block text-xs lg:text-sm font-medium text-gray-700 mb-1'>
-                    Message
-                  </label>
-                  <textarea
-                    name='message'
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={3}
-                    className='w-full px-3 py-2 lg:py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:border-gray-400 resize-none'
-                    placeholder='Tell me about your project or just say hello!'
-                  ></textarea>
-                </div>
-
-                <button
-                  onClick={handleSubmit}
-                  disabled={isSubmitting}
-                  className={`w-full bg-gradient-to-r from-blue-400 to-[hsl(var(--primary))] text-white font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 text-sm ${
-                    isSubmitting 
-                      ? 'opacity-70 cursor-not-allowed' 
-                      : 'hover:from-blue-500 hover:shadow-lg transform hover:scale-[1.02]'
-                  }`}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className='animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent'></div>
-                      <span>Sending...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send size={16} />
-                      <span>Send Message</span>
-                    </>
-                  )}
-                </button>
+            {/* Socials */}
+            <div>
+              <p className="text-[10px] font-semibold text-white/45 uppercase tracking-wider mb-3">Find me on</p>
+              <div className="flex gap-2">
+                {socials.map(({ icon: Icon, action, label, style }) => (
+                  <button
+                    key={label}
+                    onClick={action}
+                    aria-label={label}
+                    className={`flex items-center justify-center w-9 h-9 rounded-full border ${style} hover:scale-110 hover:-rotate-6 transition-all duration-200`}
+                  >
+                    <Icon size={15} />
+                  </button>
+                ))}
               </div>
-
-             
-              <div className='hidden lg:block absolute -top-2 -right-2 w-6 h-6 bg-blue-200 rounded-full opacity-20 animate-pulse'></div>
-              <div className='hidden lg:block absolute -bottom-1 -left-1 w-4 h-4 bg-indigo-200 rounded-full opacity-30 animate-pulse delay-1000'></div>
             </div>
           </div>
 
-         
-          <div className='h-1 bg-gradient-to-r from-blue-400 via-[hsl(var(--primary))] to-[hsl(var(--primary-hover))] rounded-b-2xl'></div>
+          {/* ── Right: Form ── */}
+          <div className="lg:col-span-3 flex flex-col gap-5 p-8 bg-white/60 dark:bg-white/4 backdrop-blur-sm">
+            <h3 className="font-extrabold text-lg text-[hsl(var(--foreground))] dark:text-white tracking-tight">
+              Send a Message
+            </h3>
+
+            {/* Success banner */}
+            {submitted && (
+              <div className="flex items-center gap-2 px-4 py-3 rounded-xl border border-emerald-400/30 bg-emerald-400/10 text-emerald-600 dark:text-emerald-400 text-sm font-medium">
+                <CheckCircle size={16} />
+                Message sent! I'll get back to you soon.
+              </div>
+            )}
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-semibold text-[hsl(var(--foreground))]/60 dark:text-white/40 uppercase tracking-wider">Full Name</label>
+                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Muhammad Talha" className={inputClass} />
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-semibold text-[hsl(var(--foreground))]/60 dark:text-white/40 uppercase tracking-wider">Email</label>
+                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="you@example.com" className={inputClass} />
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-1.5">
+              <label className="text-xs font-semibold text-[hsl(var(--foreground))]/60 dark:text-white/40 uppercase tracking-wider">Subject</label>
+              <input type="text" name="subject" value={formData.subject} onChange={handleChange} placeholder="What's this about?" className={inputClass} />
+            </div>
+
+            <div className="flex flex-col gap-1.5">
+              <label className="text-xs font-semibold text-[hsl(var(--foreground))]/60 dark:text-white/40 uppercase tracking-wider">Message</label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows={4}
+                placeholder="Tell me about your project or just say hello!"
+                className={`${inputClass} resize-none`}
+              />
+            </div>
+
+            <button
+              onClick={handleSubmit}
+              disabled={isSubmitting || submitted}
+              className="relative overflow-hidden group flex items-center justify-center gap-2 w-full py-3 rounded-full bg-[hsl(var(--primary))] text-[hsl(var(--background))] font-bold text-sm shadow-lg shadow-[hsl(var(--primary))]/25 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[hsl(var(--primary))]/35 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 transition-all duration-200"
+            >
+              <span className="absolute inset-0 bg-white/20 -translate-x-full -skew-x-12 group-hover:translate-x-[120%] transition-transform duration-300" />
+              {isSubmitting ? (
+                <>
+                  <div className="w-4 h-4 rounded-full border-2 border-white/40 border-t-white animate-spin" />
+                  <span className="relative">Sending…</span>
+                </>
+              ) : (
+                <>
+                  <Send size={14} />
+                  <span className="relative">Send Message</span>
+                </>
+              )}
+            </button>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 };
 
-export default Contact
+export default Contact;

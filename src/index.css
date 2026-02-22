@@ -2,7 +2,7 @@
 :root {
   --font-fira-sans-condensed: 'Fira Sans Condensed', sans-serif;
 }
-
+@custom-variant dark (&:where(.dark, .dark *));
 :root, .theme-blue {
 
   --background: 210 50% 98%;

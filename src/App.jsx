@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-[hsl(var(--background))] theme-blue antialiased">
+    <div className="min-h-screen bg-[hsl(var(--background))] theme-blue antialiased dark:bg-gray-800">
       <Navbar />
 
  

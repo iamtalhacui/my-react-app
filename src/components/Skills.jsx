@@ -23,7 +23,7 @@ export default function Skills() {
     <section id="skills" className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white py-16 px-6">
       <div className="max-w-6xl mx-auto text-center">
         <h1 className="text-4xl font-bold mb-4">Skills & Technologies</h1>
-        <p className="text-gray-400 mb-12">
+        <p className="text-gray-400 mb-12 dark:text-white">
           A snapshot of the tools and technologies I use regularly
         </p>
       </div>
