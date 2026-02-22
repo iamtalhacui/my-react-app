@@ -10,8 +10,8 @@ const projects = [
   description: "An end-to-end food delivery web app featuring secure Stripe payment processing, a dedicated admin dashboard, and an integrated smart chatbot to elevate the customer experience.",
   image: foodAppImg, 
   technologies: ["MongoDB", "Express.js", "React", "Node.js", "Tailwind CSS", "Stripe"],
-  liveUrl: "https://your-frontend-domain.vercel.app", 
-  githubUrl: "https://github.com/iamtalhacui/mern-food-app", 
+  liveUrl: "https://food-app-jade-ten.vercel.app", 
+  githubUrl: "https://github.com/iamtalhacui/food-app", 
   date: "2025",
 },
   {
