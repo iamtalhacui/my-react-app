@@ -4,6 +4,8 @@ import gymImg from "../assets/images/gym-site.png";
 import foodAppImg from "../assets/images/food-app.png";
 import tidytango from "../assets/images/tidytango.png";
 import flutterFoodAppImg from "../assets/images/food-del-app.jpeg"
+import tourAppImg from "../assets/images/tour-website.png"
+
 const projects = [
     {
     title: "Full-Stack Food Ordering Platform",
