@@ -15,6 +15,15 @@ const projects = [
     date: "2025",
   },
   {
+  title: "Tour Booking UI",
+  description: "A visually immersive and highly responsive travel platform frontend. Built purely with React and Tailwind CSS to showcase modern component-based architecture, dynamic search filtering, and a seamless user experience across all devices.",
+  image: tourAppImg, 
+  technologies: ["React.js", "Tailwind CSS", "Vite", "Frontend UI"],
+  liveUrl: "https://tour-website-1vjx.vercel.app", 
+  githubUrl: "https://github.com/iamtalhacui/tour-website/",
+  date: "2024",
+},
+  {
     title: "E-Store Website",
     description: "A clean e-commerce UI built with React and Tailwind CSS, featuring modern design and smooth user experience.",
     image: estoreImg,
