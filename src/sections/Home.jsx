@@ -179,7 +179,7 @@ const Home = () => {
           style={{ animationDelay: "0.5s" }}
         >
           <div className="relative w-full max-w-md">
-            \
+            
             <div className="absolute -inset-4 rounded-2xl border border-[hsl(var(--primary))]/10 pointer-events-none" />
           
             <div className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-[hsl(var(--primary))]/20 border border-[hsl(var(--primary))]/30" />

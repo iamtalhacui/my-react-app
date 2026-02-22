@@ -1,7 +1,7 @@
 import EducationCard from "../components/EducationCard";
 import profile from "../assets/images/profile.jpeg";
 
-const TAGS = ["MERN Stack", "TailwindCSS", "REST APIs", "UI/UX"];
+const TAGS = ["MERN Stack", "TailwindCSS", "Flutter", "UI/UX", "App Development"];
 
 const About = () => {
   return (
@@ -106,7 +106,7 @@ const About = () => {
                   Introduction
                 </h3>
               </div>
-              <p className="text-sm md:text-base leading-relaxed text-[hsl(var(--foreground))]/70 dark:text-white/60 font-mono max-w-xl">
+              <p className="text-sm md:text-base leading-10 text-[hsl(var(--foreground))]/70 dark:text-white/60  max-w-xl">
                 I'm{" "}
                 <span className="font-bold text-[hsl(var(--foreground))] dark:text-white">
                   Muhammad Talha
@@ -121,7 +121,7 @@ const About = () => {
               </p>
             </div>
 
-            {/* Education */}
+         
             <div>
               <div className="flex items-center gap-2 mb-1">
                 <span className="w-1 h-5 rounded-full bg-[hsl(var(--primary))]" />

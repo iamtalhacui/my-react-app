@@ -6,6 +6,15 @@ import tidytango from "../assets/images/tidytango.png";
 
 const projects = [
   {
+  title: "Full-Stack Food Ordering Platform",
+  description: "An end-to-end food delivery web app featuring secure Stripe payment processing, a dedicated admin dashboard, and an integrated smart chatbot to elevate the customer experience.",
+  image: foodAppImg, 
+  technologies: ["MongoDB", "Express.js", "React", "Node.js", "Tailwind CSS", "Stripe"],
+  liveUrl: "https://your-frontend-domain.vercel.app", 
+  githubUrl: "https://github.com/iamtalhacui/mern-food-app", 
+  date: "2025",
+},
+  {
     title: "E-Store Website",
     description: "A clean e-commerce UI built with React and Tailwind CSS, featuring modern design and smooth user experience.",
     image: estoreImg,

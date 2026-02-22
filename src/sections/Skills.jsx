@@ -1,6 +1,7 @@
 import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaCode, FaPython, FaPalette, FaJsSquare, FaJava } from "react-icons/fa";
-import { SiTailwindcss, SiMongodb, SiMysql, SiExpress } from "react-icons/si";
+import { SiTailwindcss, SiMongodb, SiMysql, SiExpress, SiFirebase } from "react-icons/si";
 import { IoServer } from "react-icons/io5";
+import { FaDartLang, FaFlutter } from "react-icons/fa6";
 
 const frontendSkills = [
   { icon: FaReact,       label: "React JS",      color: "text-[#61DAFB]", bg: "bg-[#61DAFB]/10 border-[#61DAFB]/25" },
@@ -8,6 +9,7 @@ const frontendSkills = [
   { icon: SiTailwindcss, label: "Tailwind CSS",  color: "text-[#38BDF8]", bg: "bg-[#38BDF8]/10 border-[#38BDF8]/25" },
   { icon: FaHtml5,       label: "HTML5",         color: "text-[#E34F26]", bg: "bg-[#E34F26]/10 border-[#E34F26]/25" },
   { icon: FaCss3Alt,     label: "CSS3",          color: "text-[#1572B6]", bg: "bg-[#1572B6]/10 border-[#1572B6]/25" },
+  {icon : FaFlutter,     label:"Flutter",        color: "text-[#38BDF8]", bg: "bg-[#38BDF8]/10 border-[#38BDF8]/25"}
 ];
 
 const backendSkills = [
@@ -15,6 +17,7 @@ const backendSkills = [
   { icon: SiExpress,  label: "Express.js", color: "text-[#ffffff]", bg: "bg-white/10 border-white/20" },
   { icon: SiMongodb,  label: "MongoDB",   color: "text-[#47A248]", bg: "bg-[#47A248]/10 border-[#47A248]/25" },
   { icon: SiMysql,    label: "MySQL",     color: "text-[#00758F]", bg: "bg-[#00758F]/10 border-[#00758F]/25" },
+  { icon: SiFirebase, label: "Firebase",     color: "text-[#E34F26]", bg: "bg-[#E34F26]/10 border-[#E34F26]/25" },
 ];
 
 const programmingSkills = [
@@ -24,6 +27,8 @@ const programmingSkills = [
   { icon: FaCode,     label: "C",         color: "text-[#A8B9CC]", bg: "bg-[#A8B9CC]/10 border-[#A8B9CC]/25" },
   { icon: FaHtml5,    label: "HTML5",     color: "text-[#E34F26]", bg: "bg-[#E34F26]/10 border-[#E34F26]/25" },
   { icon: FaCss3Alt,  label: "CSS3",      color: "text-[#1572B6]", bg: "bg-[#1572B6]/10 border-[#1572B6]/25" },
+  { icon: FaDartLang,     label: "Dart",      color: "text-[#ED8B00]", bg: "bg-[#ED8B00]/10 border-[#ED8B00]/25" },
+
 ];
 
 const categories = [

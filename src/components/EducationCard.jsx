@@ -24,8 +24,12 @@ export default function EducationCard() {
           </p>
           <span className="inline-flex items-center gap-1.5 mt-1 text-xs font-medium text-[hsl(var(--foreground))]/50 dark:text-white/40">
             <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-            2023 — Present
+            2023 — Present 
           </span>
+          <p className="text-sm font-semibold text-[hsl(var(--primary))]">
+            CGPA : 3.51
+          </p>
+          
         </div>
       </div>
     </div>
