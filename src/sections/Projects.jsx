@@ -3,17 +3,17 @@ import estoreImg from "../assets/images/e-store.png";
 import gymImg from "../assets/images/gym-site.png";
 import foodAppImg from "../assets/images/food-app.png";
 import tidytango from "../assets/images/tidytango.png";
-
+import flutterFoodAppImg from "../assets/images/food-del-app.jpeg"
 const projects = [
-  {
-  title: "Full-Stack Food Ordering Platform",
-  description: "An end-to-end food delivery web app featuring secure Stripe payment processing, a dedicated admin dashboard, and an integrated smart chatbot to elevate the customer experience.",
-  image: foodAppImg, 
-  technologies: ["MongoDB", "Express.js", "React", "Node.js", "Tailwind CSS", "Stripe"],
-  liveUrl: "https://food-app-jade-ten.vercel.app", 
-  githubUrl: "https://github.com/iamtalhacui/food-app", 
-  date: "2025",
-},
+    {
+    title: "Full-Stack Food Ordering Platform",
+    description: "An end-to-end food delivery web app featuring secure Stripe payment processing, a dedicated admin dashboard, and an integrated smart chatbot to elevate the customer experience.",
+    image: foodAppImg, 
+    technologies: ["MongoDB", "Express.js", "React", "Node.js", "Tailwind CSS", "Stripe"],
+    liveUrl: "https://food-app-jade-ten.vercel.app", 
+    githubUrl: "https://github.com/iamtalhacui/food-app", 
+    date: "2025",
+  },
   {
     title: "E-Store Website",
     description: "A clean e-commerce UI built with React and Tailwind CSS, featuring modern design and smooth user experience.",
@@ -22,6 +22,15 @@ const projects = [
     liveUrl: "https://e-store-plum-chi.vercel.app",
     githubUrl: "https://github.com/iamtalhacui/e-store",
     date: "2024",
+  },
+    {
+    title: "AI-Powered Food Delivery Ecosystem",
+    description: "A cross-platform mobile application featuring dedicated portals for customers, restaurant owners, and admins. Integrated with a smart AI chatbot for seamless support and backed by a robust NoSQL architecture.",
+    image: flutterFoodAppImg, 
+    technologies: ["Flutter", "Node.js", "Express.js", "MongoDB", "AI Chatbot"],
+    // liveUrl: "", // Coming soon!
+    githubUrl: "https://github.com/iamtalhacui/flutter-food-app",
+    date: "2025",
   },
   {
     title: "Code & Gym Website",
@@ -75,7 +84,7 @@ const Projects = () => {
         </div>
 
         {/* Cards grid */}
-        <div className="mt-14 flex flex-wrap justify-center lg:justify-start gap-4">
+        <div className="mt-14 flex flex-wrap justify-center items-center lg:justify-start gap-4">
           {projects.map((project, index) => (
             <div
               key={project.title}
