@@ -1,7 +1,7 @@
 import { ProjectCard } from "../components/ProjectCard";
 import estoreImg from "../assets/images/e-store.png";
 import gymImg from "../assets/images/gym-site.png";
-import rpsImg from "../assets/images/rock-paper-scissor.png";
+import foodAppImg from "../assets/images/food-app.png";
 import tidytango from "../assets/images/tidytango.png";
 
 const projects = [
