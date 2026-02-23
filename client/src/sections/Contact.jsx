@@ -28,7 +28,7 @@ const Contact = () => {
     if(formData.email.length != 0 && formData.message.length != 0 && formData.subject.length != 0 && formData.name.length != 0)
     {
       setIsSubmitting(true);
-     await  axios.post("http://localhost:3000/api/send-msg", formData)
+     await  axios.post("https://portfolio-backend-otzw.onrender.com/api/send-msg", formData)
     setIsSubmitting(false);
     setSubmitted(true);
     setTimeout(() => {
