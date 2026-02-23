@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram, CheckCircle } from "lucide-react";
-
+import { CiWarning } from "react-icons/ci";
+import axios from "axios"
 const openLink = (url) => window.open(url, "_blank", "noopener,noreferrer");
 
 const contactInfo = [
@@ -19,18 +20,27 @@ const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [empty, setEmpty] = useState(false);
 
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = async () => {
-    setIsSubmitting(true);
-    await new Promise((r) => setTimeout(r, 1800));
+    if(formData.email.length != 0 && formData.message.length != 0 && formData.subject.length != 0 && formData.name.length != 0)
+    {
+      setIsSubmitting(true);
+     await  axios.post("http://localhost:3000/api/send-msg", formData)
     setIsSubmitting(false);
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
       setFormData({ name: "", email: "", subject: "", message: "" });
     }, 3000);
+  } else {
+      setEmpty(true)
+      setTimeout(() => {
+      setEmpty(false)
+    }, 3000);
+  }
   };
 
   const inputClass =
@@ -48,11 +58,11 @@ const Contact = () => {
 
       <section id="contact" className="relative min-h-screen py-24 px-5 md:px-10 lg:px-32 overflow-hidden scroll-mt-20">
 
-        {/* Background blobs */}
+    
         <div className="absolute top-10 left-0 w-80 h-80 rounded-full bg-[hsl(var(--primary))]/6 blur-3xl pointer-events-none" />
         <div className="absolute bottom-10 right-0 w-72 h-72 rounded-full bg-[hsl(var(--primary))]/5 blur-3xl pointer-events-none" />
 
-        {/* Heading */}
+       
         <div className="anim-fade-up" style={{ animationDelay: "0.1s" }}>
           <p className="text-xs font-semibold tracking-widest uppercase text-[hsl(var(--primary))]/70 mb-2">
             Let's work together
@@ -66,14 +76,14 @@ const Contact = () => {
           </p>
         </div>
 
-        {/* Main card */}
+       
         <div
           className="anim-fade-up mt-12 grid grid-cols-1 lg:grid-cols-5 rounded-2xl border border-[hsl(var(--primary))]/10 overflow-hidden shadow-xl shadow-black/5"
           style={{ animationDelay: "0.25s" }}
         >
-          {/* ── Left sidebar ── */}
+          
           <div className="relative lg:col-span-2 flex flex-col gap-8 p-8 bg-[hsl(var(--primary))] overflow-hidden">
-            {/* Decorative circles */}
+            
             <div className="absolute -bottom-16 -right-16 w-48 h-48 rounded-full bg-white/8 pointer-events-none" />
             <div className="absolute -top-10 -left-10 w-36 h-36 rounded-full bg-white/5 pointer-events-none" />
 
@@ -84,7 +94,7 @@ const Contact = () => {
               </p>
             </div>
 
-            {/* Contact info items */}
+            
             <div className="flex flex-col gap-4">
               {contactInfo.map(({ icon: Icon, label, value, bg, color }) => (
                 <div key={label} className="flex items-center gap-3 group">
@@ -99,7 +109,7 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Socials */}
+            
             <div>
               <p className="text-[10px] font-semibold text-white/45 uppercase tracking-wider mb-3">Find me on</p>
               <div className="flex gap-2">
@@ -123,7 +133,7 @@ const Contact = () => {
               Send a Message
             </h3>
 
-            {/* Success banner */}
+           
             {submitted && (
               <div className="flex items-center gap-2 px-4 py-3 rounded-xl border border-emerald-400/30 bg-emerald-400/10 text-emerald-600 dark:text-emerald-400 text-sm font-medium">
                 <CheckCircle size={16} />
@@ -177,6 +187,12 @@ const Contact = () => {
                 </>
               )}
             </button>
+            {empty && (
+              <div className="flex items-center gap-2 px-4 py-3 rounded-xl border border-red-400/30 bg-red-400/10 text-red-600 dark:text-red-400 text-sm font-medium">
+                <CiWarning />
+                Fields cannot be empty
+              </div>
+            )}
           </div>
         </div>
       </section>
