@@ -8,7 +8,7 @@ The website showcases my profile, skills, projects, and contact information in a
 
 ## 🚀 Live Demo
 
-🔗 [View Live Website]([https://mtalha-dev.vercel.app])
+🔗 [View Live Website](https://mtalha-dev.vercel.app)
 
 ---
 
