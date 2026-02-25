@@ -50,7 +50,7 @@ The goal of this project was to:
 
 ## 📸 Preview
 
-<img width="1382" height="611" alt="Screenshot 2026-02-25 at 7 17 45 AM" src="https://github.com/user-attachments/assets/0d386609-7a00-4f54-9a82-7eb911fc15f2" />
+<img width="1410" height="675" alt="image" src="https://github.com/user-attachments/assets/c6821b2d-574f-4834-8352-3087f18c309b" />
 
 
 ---
